@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,17 +16,29 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Subtract a scalar constant from each element in an input one-dimensional ndarray and assign the results to elements in a one-dimensional output ndarray.
+* Subtracts a scalar constant from each element in an input one-dimensional ndarray and assigns the results to elements in a one-dimensional output ndarray.
 *
-* @module @stdlib/blas-ext-base-ndarray-gwxsa
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a one-dimensional output ndarray.
+*     -   a zero-dimensional ndarray containing the scalar constant to subtract.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns output ndarray
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var gwxsa = require( '@stdlib/blas-ext-base-ndarray-gwxsa' );
 *
 * var x = vector( [ -2.0, 1.0, 3.0, -5.0 ], 'generic' );
 * var w = vector( [ 0.0, 0.0, 0.0, 0.0 ], 'generic' );
@@ -38,12 +50,9 @@
 * var out = gwxsa( [ x, w, alpha ] );
 * // returns <ndarray>[ -7.0, -4.0, -2.0, -10.0 ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function gwxsa<T extends typedndarray<number> = typedndarray<number>>( arrays: [ typedndarray<number>, T, typedndarray<number> ] ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = gwxsa;
